@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title> Database </title>
+    <title> Database CAMBIO PARA SOURCETREE </title>
   </head>
   <body>
     <?php
@@ -33,7 +33,7 @@
 
       <?php
 
-      
+
       while ($fila1=$resultado1->fetch_assoc()) {
 
         echo "<tr>";
