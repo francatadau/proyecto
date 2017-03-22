@@ -2,18 +2,49 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Pagina principal</title>
+    <title> Database </title>
   </head>
   <body>
-    <h2>Mostrar partidos</h2>
-    <form action="insertar.php" method="post">
-      Nombre: <input type="text" name="nombre"><br><br>
-      Ciudad:<input type="text" name="ciudad"><br><br>
-      Conferencia:<input type="text" name="conferencia"><br><br>
-      Division:<input type="text" name="division"><br><br>
+    <?php
+    //Crear el objeto de conexion
+    $mysqli = new mysqli ("localhost", "root", "", "nba");
+    if ($mysqli->connect_errno) {
+      //Ha habido un error
+      echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }else {
 
-      <input type="submit" value="Añadir">
+      $resultado1 = $mysqli->query("SELECT * FROM equipos");
+  }
 
-    </form>
+     ?>
+     <h1><a href="confeste.php"></a>Conferencia Este</h1>
+     <a href="">Conferencia Oeste</a>
+     <a href="temporada.php">Temporada 99/00</a>
+    <hr>
+
+     <table border="1">
+      <tr>
+        <th> Nombre </th>
+        <th> Ciudad </th>
+        <th> Conferencia </th>
+        <th> Division </th>
+      </tr>
+
+
+      <?php
+
+      
+      while ($fila1=$resultado1->fetch_assoc()) {
+
+        echo "<tr>";
+        echo "<td>".$fila1['Nombre']."</td>";
+        echo "<td>".$fila1['Ciudad']."</td>";
+        echo "<td>".$fila1['Conferencia']."</td>";
+        echo "<td>".$fila1['Division']."</td>";
+
+      }
+      echo "</table>";
+      ?>
+
   </body>
 </html>
